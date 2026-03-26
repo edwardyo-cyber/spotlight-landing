@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spotlight Creator Network — Ivea Concepts</title>
+<meta name="description" content="Partner with 20+ restaurant concepts across 40+ locations in the DMV. Create content, host events, and earn performance-based commissions.">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
+  color: #FFFFFF;
+  background: #1E1E1B;
+  overflow-x: hidden;
+}
+
+img, svg { display: block; max-width: 100%; }
+ul { list-style: none; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+
+::selection {
+  background: rgba(163, 230, 53, 0.3);
+  color: #FFFFFF;
+}
+
+/* ===== VARIABLES ===== */
+:root {
+  --dark: #1E1E1B;
+  --light: #F5F5F0;
+  --lime: #A3E635;
+  --lime-hover: #84CC16;
+  --dark-text: #111111;
+  --white: #FFFFFF;
+  --muted: rgba(255,255,255,0.4);
+  --divider-dark: rgba(255,255,255,0.12);
+  --divider-light: #E0E0DC;
+  --max-width: 1280px;
+}
+
+/* ===== NAVIGATION ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0 clamp(24px, 4vw, 48px);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--divider-dark);
+  background: rgba(30, 30, 27, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-logo {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--white);
+}
+
+.nav-mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+
+.nav-mobile-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--dark);
+  padding: clamp(100px, 12vh, 160px) clamp(24px, 4vw, 48px) clamp(60px, 8vh, 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.hero-ghost {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(120px, 25vw, 380px);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.06);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  user-select: none;
+}
+
+.hero-grid-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.hero-grid-lines::before,
+.hero-grid-lines::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-grid-lines::before {
+  left: 33.33%;
+}
+
+.hero-grid-lines::after {
+  left: 66.66%;
+}
+
+.hero-services {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-services span {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.8;
+}
+
+.hero-bottom {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: end;
+}
+
+.hero h1 {
+  font-size: clamp(48px, 7.5vw, 110px);
+  font-weight: 800;
+  line-height: 0.93;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.hero h1 span {
+  display: block;
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 480px;
+  justify-self: end;
+  align-self: end;
+}
+
+.hero-sub {
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-lime {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  background: var(--lime);
+  color: var(--dark-text);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.btn-lime:hover {
+  background: var(--lime-hover);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  background: transparent;
+  color: var(--dark-text);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid var(--divider-light);
+  transition: border-color 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.btn-outline:hover {
+  border-color: var(--dark-text);
+  transform: translateY(-1px);
+}
+
+/* ===== SERVICES ===== */
+.services {
+  background: var(--dark);
+  padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
+}
+
+.services-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.service-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(28px, 4vw, 56px) 0;
+  border-top: 1px solid var(--divider-dark);
+  gap: 24px;
+}
+
+.service-row:last-child {
+  border-bottom: 1px solid var(--divider-dark);
+}
+
+.service-name {
+  font-size: clamp(32px, 5.5vw, 88px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.service-tags span {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ===== VENUES ===== */
+.venues {
+  background: var(--light);
+  padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
+}
+
+.venues-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.venues h2 {
+  font-size: clamp(48px, 9vw, 130px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--dark-text);
+  text-align: center;
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+.venues-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.venue-card {
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.venue-card:hover {
+  transform: scale(1.015);
+}
+
+.venue-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(28px, 3vw, 48px);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  border-radius: 8px;
+}
+
+.venue-card:nth-child(1) .venue-img { background: #B91C1C; }
+.venue-card:nth-child(2) .venue-img { background: #1E3A5F; }
+.venue-card:nth-child(3) .venue-img { background: #D97706; }
+.venue-card:nth-child(4) .venue-img { background: #4338CA; }
+
+.venue-info {
+  padding: 16px 4px;
+}
+
+.venue-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-text);
+}
+
+.venue-location {
+  font-size: 14px;
+  font-weight: 400;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* ===== STATS ===== */
+.stats {
+  background: var(--dark);
+  padding: clamp(60px, 8vw, 120px) clamp(24px, 4vw, 48px);
+}
+
+.stats-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ===== HOW IT WORKS ===== */
+.process {
+  background: var(--light);
+  padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
+}
+
+.process-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.process-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lime-hover);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.process h2 {
+  font-size: clamp(48px, 9vw, 130px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--dark-text);
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+.step-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 1.5fr;
+  gap: 32px;
+  align-items: baseline;
+  padding: clamp(24px, 3vw, 40px) 0;
+  border-top: 1px solid var(--divider-light);
+}
+
+.step-row:last-child {
+  border-bottom: 1px solid var(--divider-light);
+}
+
+.step-num {
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 700;
+  color: var(--dark-text);
+  opacity: 0.3;
+}
+
+.step-title {
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 700;
+  color: var(--dark-text);
+  line-height: 1.1;
+}
+
+.step-desc {
+  font-size: clamp(15px, 1.2vw, 18px);
+  font-weight: 400;
+  color: #666;
+  line-height: 1.55;
+  max-width: 500px;
+}
+
+/* ===== PRICING ===== */
+.pricing {
+  background: var(--light);
+  padding: 0 clamp(24px, 4vw, 48px) clamp(60px, 8vw, 140px);
+}
+
+.pricing-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.pricing-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lime-hover);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.pricing h2 {
+  font-size: clamp(48px, 9vw, 130px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--dark-text);
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.pricing-card {
+  background: var(--white);
+  border: 1px solid var(--divider-light);
+  border-radius: 14px;
+  padding: clamp(28px, 3vw, 48px);
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-tier {
+  font-size: 14px;
+  font-weight: 500;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.pricing-plan {
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-bottom: 4px;
+}
+
+.pricing-commission {
+  font-size: clamp(40px, 4vw, 64px);
+  font-weight: 900;
+  color: var(--dark-text);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.pricing-commission-label {
+  font-size: 15px;
+  color: #888;
+  margin-bottom: 32px;
+}
+
+.pricing-features {
+  flex: 1;
+  margin-bottom: 32px;
+}
+
+.pricing-features li {
+  font-size: 16px;
+  color: #444;
+  padding: 8px 0;
+  line-height: 1.4;
+}
+
+.pricing-features li::before {
+  content: '⊹ ';
+  color: var(--lime-hover);
+}
+
+.pricing-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ===== FAQ ===== */
+.faq {
+  background: var(--dark);
+  padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
+}
+
+.faq-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+}
+
+.faq-left h2 {
+  font-size: clamp(80px, 12vw, 200px);
+  font-weight: 900;
+  line-height: 0.9;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.faq-left p {
+  font-size: clamp(16px, 1.3vw, 20px);
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 400px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item {
+  border-top: 1px solid var(--divider-dark);
+  overflow: hidden;
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid var(--divider-dark);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(16px, 2vw, 24px) 0;
+  cursor: pointer;
+  text-align: left;
+  gap: 16px;
+}
+
+.faq-question-text {
+  font-size: clamp(16px, 1.3vw, 20px);
+  font-weight: 400;
+  color: var(--white);
+  flex: 1;
+}
+
+.faq-num {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+.faq-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: '';
+  position: absolute;
+  background: var(--muted);
+  transition: transform 0.3s;
+}
+
+.faq-icon::before {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+.faq-icon::after {
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+.faq-item.active .faq-icon::after {
+  transform: translateX(-50%) rotate(90deg);
+  opacity: 0;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s;
+}
+
+.faq-answer-inner {
+  padding: 0 0 24px;
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--light);
+  padding-top: clamp(60px, 8vw, 120px);
+  overflow: hidden;
+}
+
+.footer-marquee {
+  padding: 0 0 clamp(40px, 5vw, 80px);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.footer-marquee-track {
+  display: inline-flex;
+  animation: marquee 20s linear infinite;
+}
+
+.footer-marquee-text {
+  font-size: clamp(100px, 18vw, 260px);
+  font-weight: 900;
+  color: var(--dark-text);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  padding-right: 48px;
+  user-select: none;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4vw, 48px) clamp(40px, 5vw, 60px);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 15px;
+  color: #666;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: var(--dark-text);
+}
+
+.footer-col-label {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #999;
+  margin-bottom: 16px;
+}
+
+.footer-col p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.footer-col .social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.footer-col .social-links a {
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 500;
+  color: #888;
+}
+
+.footer-stripe {
+  height: 4px;
+  background: linear-gradient(to right, #84CC16, #A3E635, #BEF264);
+}
+
+.footer-copyright {
+  background: var(--light);
+  padding: 16px clamp(24px, 4vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top: 1px solid var(--divider-light);
+}
+
+.footer-copyright p,
+.footer-copyright a {
+  font-size: 13px;
+  color: #999;
+}
+
+.footer-copyright a:hover {
+  color: var(--dark-text);
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--dark);
+    padding: 24px clamp(24px, 4vw, 48px);
+    gap: 20px;
+    border-bottom: 1px solid var(--divider-dark);
+  }
+
+  .nav-mobile-toggle {
+    display: flex;
+  }
+
+  .hero-bottom {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-right {
+    justify-self: start;
+    max-width: 100%;
+  }
+
+  .venues-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .step-row {
+    grid-template-columns: 60px 1fr;
+    gap: 16px;
+  }
+
+  .step-desc {
+    grid-column: 1 / -1;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .service-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .service-tags {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: clamp(36px, 12vw, 56px);
+  }
+
+  .stats-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .footer-copyright {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <a href="#" class="nav-logo">SPOTLIGHT ™</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#services">Services</a>
+    <a href="#venues">Venues</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-ghost" aria-hidden="true">SPOTLIGHT</div>
+  <div class="hero-grid-lines" aria-hidden="true"></div>
+
+  <div class="hero-services">
+    <span>Creator Partnerships</span>
+    <span>Event Hosting</span>
+    <span>Performance Marketing</span>
+    <span>Brand Amplification</span>
+  </div>
+
+  <div class="hero-bottom">
+    <h1>
+      <span>Creative partners</span>
+      <span>for creators</span>
+    </h1>
+    <div class="hero-right">
+      <p class="hero-sub">We partner with food creators to drive revenue, host unforgettable events, and build audiences across 40+ restaurant venues.</p>
+      <div>
+        <a href="#pricing" class="btn-lime">See Pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="service-row reveal">
+      <span class="service-name">Creator Partnerships</span>
+      <div class="service-tags">
+        <span>⊹ Content Creation</span>
+        <span>⊹ Revenue Share</span>
+        <span>⊹ Brand Collabs</span>
+      </div>
+    </div>
+    <div class="service-row reveal">
+      <span class="service-name">Event Hosting</span>
+      <div class="service-tags">
+        <span>⊹ Private Events</span>
+        <span>⊹ Venue Access</span>
+        <span>⊹ Full Support</span>
+      </div>
+    </div>
+    <div class="service-row reveal">
+      <span class="service-name">Performance Marketing</span>
+      <div class="service-tags">
+        <span>⊹ Attribution</span>
+        <span>⊹ Analytics</span>
+        <span>⊹ Optimization</span>
+      </div>
+    </div>
+    <div class="service-row reveal">
+      <span class="service-name">Brand Amplification</span>
+      <div class="service-tags">
+        <span>⊹ Social Media</span>
+        <span>⊹ Cross-Promotion</span>
+        <span>⊹ Community</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUES -->
+<section class="venues" id="venues">
+  <div class="venues-inner">
+    <h2 class="reveal">Featured<br>Venues</h2>
+    <div class="venues-grid">
+      <div class="venue-card reveal">
+        <div class="venue-img">iPD</div>
+        <div class="venue-info">
+          <div class="venue-name">iPanda Dumpling</div>
+          <div class="venue-location">Rockville, MD</div>
+        </div>
+      </div>
+      <div class="venue-card reveal">
+        <div class="venue-img">KS</div>
+        <div class="venue-info">
+          <div class="venue-name">Kyū Steakhouse</div>
+          <div class="venue-location">DC — Georgetown</div>
+        </div>
+      </div>
+      <div class="venue-card reveal">
+        <div class="venue-img">MR</div>
+        <div class="venue-info">
+          <div class="venue-name">Momo Ramen</div>
+          <div class="venue-location">DC — Dupont Circle</div>
+        </div>
+      </div>
+      <div class="venue-card reveal">
+        <div class="venue-img">IN</div>
+        <div class="venue-info">
+          <div class="venue-name">Izakaya Nana</div>
+          <div class="venue-location">Arlington, VA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="reveal">
+      <div class="stat-number">20+</div>
+      <div class="stat-label">Concepts</div>
+    </div>
+    <div class="reveal">
+      <div class="stat-number">40+</div>
+      <div class="stat-label">Locations</div>
+    </div>
+    <div class="reveal">
+      <div class="stat-number">4.8x</div>
+      <div class="stat-label">Program ROI</div>
+    </div>
+    <div class="reveal">
+      <div class="stat-number">$48K+</div>
+      <div class="stat-label">Monthly Revenue</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="process" id="process">
+  <div class="process-inner">
+    <div class="process-label reveal">Process</div>
+    <h2 class="reveal">How it works</h2>
+
+    <div class="step-row reveal">
+      <span class="step-num">01</span>
+      <span class="step-title">Apply & Match</span>
+      <p class="step-desc">Submit your application and get matched with restaurant concepts that fit your niche, audience, and content style.</p>
+    </div>
+    <div class="step-row reveal">
+      <span class="step-num">02</span>
+      <span class="step-title">Book & Visit</span>
+      <p class="step-desc">Browse available venues and book dining experiences through our platform. Enjoy complimentary meals on every visit.</p>
+    </div>
+    <div class="step-row reveal">
+      <span class="step-num">03</span>
+      <span class="step-title">Create & Host</span>
+      <p class="step-desc">Create authentic content — reels, stories, reviews — and host curated events that bring your community together.</p>
+    </div>
+    <div class="step-row reveal">
+      <span class="step-num">04</span>
+      <span class="step-title">Earn & Grow</span>
+      <p class="step-desc">Earn performance-based commissions on every booking you drive. Level up to unlock higher tiers and exclusive perks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-label reveal">Pricing</div>
+    <h2 class="reveal">Partner Tiers</h2>
+
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Tier 1</div>
+        <div class="pricing-plan">Creator</div>
+        <div class="pricing-commission">8-12%</div>
+        <div class="pricing-commission-label">Commission per booking</div>
+        <ul class="pricing-features">
+          <li>Access to all 40+ venues</li>
+          <li>Complimentary dining per visit</li>
+          <li>Content creation toolkit</li>
+          <li>Performance analytics dashboard</li>
+          <li>Monthly creator meetups</li>
+          <li>Direct booking link</li>
+        </ul>
+        <div class="pricing-buttons">
+          <a href="#contact" class="btn-lime">Get Started</a>
+        </div>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="pricing-tier">Tier 2</div>
+        <div class="pricing-plan">Headliner</div>
+        <div class="pricing-commission">12-15%</div>
+        <div class="pricing-commission-label">Commission per booking</div>
+        <ul class="pricing-features">
+          <li>Everything in Creator tier</li>
+          <li>Priority venue access</li>
+          <li>Custom event hosting</li>
+          <li>Dedicated account manager</li>
+          <li>Brand collaboration pipeline</li>
+          <li>Cross-promotion across network</li>
+          <li>Revenue optimization support</li>
+        </ul>
+        <div class="pricing-buttons">
+          <a href="#contact" class="btn-lime">Get Started</a>
+          <a href="#contact" class="btn-outline">Book a Call</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-left reveal">
+      <h2>FAQ</h2>
+      <p>Everything you need to know about the Spotlight Creator Network.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-num">01</span>
+          <span class="faq-question-text">How do I join Spotlight?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Apply through our platform with your social media profiles and content portfolio. Our team reviews applications within 48 hours and matches you with restaurant concepts that align with your audience and style.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-num">02</span>
+          <span class="faq-question-text">How does the commission system work?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">You earn a percentage of every booking made through your unique link or promo code. Commissions are tracked in real-time on your dashboard and paid out monthly. Rates increase as you level up through tiers.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-num">03</span>
+          <span class="faq-question-text">Can I host my own events?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Absolutely. Headliner-tier creators get full event hosting support — from venue selection and menu curation to marketing and day-of coordination. Creator-tier members can request event access on a case-by-case basis.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-num">04</span>
+          <span class="faq-question-text">Which restaurants are available?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Spotlight partners with Ivea Concepts' full portfolio of 20+ restaurant concepts across 40+ locations in the Washington DC metro area — including Japanese, Chinese, Korean, Italian, and fusion cuisines.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-num">05</span>
+          <span class="faq-question-text">How do I level up tiers?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Tier advancement is based on performance metrics: booking volume, content engagement, and audience growth. Meet the quarterly benchmarks and you automatically advance. Your dashboard tracks progress in real-time.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+  <div class="footer-marquee" aria-hidden="true">
+    <div class="footer-marquee-track">
+      <span class="footer-marquee-text">SPOTLIGHT ™ —&nbsp;</span>
+      <span class="footer-marquee-text">SPOTLIGHT ™ —&nbsp;</span>
+      <span class="footer-marquee-text">SPOTLIGHT ™ —&nbsp;</span>
+      <span class="footer-marquee-text">SPOTLIGHT ™ —&nbsp;</span>
+      <span class="footer-marquee-text">SPOTLIGHT ™ —&nbsp;</span>
+      <span class="footer-marquee-text">SPOTLIGHT ™ —&nbsp;</span>
+    </div>
+  </div>
+
+  <div class="footer-content">
+    <div class="footer-col">
+      <div class="footer-col-label">Navigation</div>
+      <a href="#services">Services</a>
+      <a href="#venues">Venues</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="footer-col" style="text-align: center;">
+      <div class="footer-col-label">Location</div>
+      <p>Washington DC Metro Area</p>
+      <div class="social-links">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">X</a>
+      </div>
+    </div>
+    <div class="footer-col" style="text-align: right;">
+      <div class="footer-col-label">Get in touch</div>
+      <a href="mailto:creators@spotlightnetwork.com">creators@spotlightnetwork.com</a>
+    </div>
+  </div>
+
+  <div class="footer-stripe"></div>
+  <div class="footer-copyright">
+    <p>© 2026 Ivea Concepts · Spotlight Creator Network</p>
+    <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+  </div>
+</footer>
+
+<script>
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  const isOpen = navLinks.classList.contains('open');
+  navToggle.setAttribute('aria-expanded', isOpen);
+  // Animate hamburger
+  const spans = navToggle.querySelectorAll('span');
+  if (isOpen) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+  } else {
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '';
+    spans[2].style.transform = '';
+  }
+});
+
+// Close mobile nav on link click
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    const spans = navToggle.querySelectorAll('span');
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '';
+    spans[2].style.transform = '';
+  });
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -40px 0px'
+});
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isActive = item.classList.contains('active');
+
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('active');
+      i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+
+    // Open clicked (if wasn't active)
+    if (!isActive) {
+      item.classList.add('active');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+// Nav background on scroll
+const nav = document.querySelector('.nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    nav.style.background = 'rgba(30, 30, 27, 0.95)';
+  } else {
+    nav.style.background = 'rgba(30, 30, 27, 0.85)';
+  }
+}, { passive: true });
+</script>
+
+</body>
+</html>
