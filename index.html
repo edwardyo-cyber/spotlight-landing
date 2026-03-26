@@ -21,7 +21,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spotlight Creator Network — Ivea Concepts</title>
-<meta name="description" content="Partner with 20+ restaurant concepts across 40+ locations in the DMV. Create content, host events, and earn performance-based commissions.">
+<meta name="description" content="A creator-first platform where restaurants are the stage, not the star. Browse venues, create content, host events, earn by performance.">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 <style>
@@ -64,6 +64,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   --dark-text: #111111;
   --white: #FFFFFF;
   --muted: rgba(255,255,255,0.4);
+  --muted-dark: #777;
   --divider-dark: rgba(255,255,255,0.12);
   --divider-light: #E0E0DC;
   --max-width: 1280px;
@@ -135,6 +136,20 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 55%;
+  height: 100%;
+  background: url('images/hero-creator.jpg') center/cover no-repeat;
+  opacity: 0.18;
+  mask-image: linear-gradient(to left, rgba(0,0,0,0.6), transparent);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.6), transparent);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-ghost {
@@ -268,54 +283,488 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   transform: translateY(-1px);
 }
 
-/* ===== SERVICES ===== */
-.services {
-  background: var(--dark);
+/* ===== SECTION SHARED ===== */
+.section-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lime);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.section-label--dark {
+  color: var(--lime-hover);
+}
+
+.section-heading {
+  font-size: clamp(48px, 8vw, 110px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.section-heading--white { color: var(--white); }
+.section-heading--dark { color: var(--dark-text); }
+
+.section-sub {
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 400;
+  line-height: 1.55;
+  max-width: 640px;
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+.section-sub--muted { color: var(--muted); }
+.section-sub--dark { color: #666; }
+
+/* ===== SECTION: PROBLEM (light) ===== */
+.problem {
+  background: var(--light);
   padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
 }
 
-.services-inner {
+.problem-inner {
   max-width: var(--max-width);
   margin: 0 auto;
 }
 
-.service-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: clamp(28px, 4vw, 56px) 0;
-  border-top: 1px solid var(--divider-dark);
-  gap: 24px;
+.problem-sub {
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-weight: 400;
+  line-height: 1.55;
+  color: #666;
+  max-width: 560px;
+  margin-bottom: clamp(48px, 6vw, 80px);
 }
 
-.service-row:last-child {
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--divider-light);
+  border-bottom: 1px solid var(--divider-light);
+}
+
+.comparison-col {
+  padding: clamp(28px, 4vw, 48px) clamp(24px, 3vw, 40px);
+}
+
+.comparison-col:first-child {
+  border-right: 1px solid var(--divider-light);
+}
+
+.comparison-col h3 {
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+
+.comparison-col ul li {
+  font-size: clamp(15px, 1.2vw, 18px);
+  color: #555;
+  padding: 12px 0;
+  border-top: 1px solid var(--divider-light);
+  line-height: 1.4;
+}
+
+.comparison-col ul li:first-child {
+  border-top: none;
+}
+
+.comparison-col ul li::before {
+  content: '⊹ ';
+  color: var(--lime-hover);
+}
+
+.comparison-col ul li.comparison-highlight--red {
+  color: #B91C1C;
+  font-weight: 600;
+}
+
+.comparison-col ul li.comparison-highlight--red::before {
+  color: #B91C1C;
+}
+
+.comparison-col ul li.comparison-highlight--lime {
+  color: var(--lime-hover);
+  font-weight: 600;
+}
+
+/* ===== SECTION: WHAT IS SPOTLIGHT (dark) ===== */
+.what-is {
+  background: var(--dark);
+  padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
+}
+
+.what-is-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.what-is-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.what-is-card {
+  background: rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: clamp(28px, 3vw, 48px);
+  border: 1px solid var(--divider-dark);
+}
+
+.what-is-card h3 {
+  font-size: clamp(24px, 2.5vw, 36px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.what-is-card p {
+  font-size: clamp(15px, 1.1vw, 17px);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ===== SECTION: PROCESS / HOW IT WORKS (light) ===== */
+.process {
+  background: var(--light);
+  padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
+}
+
+.process-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.step-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 1.5fr;
+  gap: 32px;
+  align-items: baseline;
+  padding: clamp(24px, 3vw, 40px) 0;
+  border-top: 1px solid var(--divider-light);
+}
+
+.step-row:last-child {
+  border-bottom: 1px solid var(--divider-light);
+}
+
+.step-num {
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 700;
+  color: var(--dark-text);
+  opacity: 0.3;
+}
+
+.step-title {
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 700;
+  color: var(--dark-text);
+  line-height: 1.1;
+}
+
+.step-desc {
+  font-size: clamp(15px, 1.2vw, 18px);
+  font-weight: 400;
+  color: #666;
+  line-height: 1.55;
+  max-width: 500px;
+}
+
+.callout-lime {
+  margin-top: clamp(40px, 5vw, 64px);
+  padding: clamp(24px, 3vw, 40px);
+  background: var(--lime);
+  border-radius: 12px;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 700;
+  color: var(--dark-text);
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+/* ===== SECTION: KPI (dark) ===== */
+.kpi {
+  background: var(--dark);
+  padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
+}
+
+.kpi-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.kpi-block {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--divider-dark);
+  border-radius: 12px;
+  padding: clamp(20px, 2vw, 32px);
+  text-align: center;
+}
+
+.kpi-block-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.kpi-block-value {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 900;
+  color: var(--lime);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.kpi-block-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.fairness-box {
+  background: rgba(163, 230, 53, 0.08);
+  border: 1px solid rgba(163, 230, 53, 0.25);
+  border-radius: 12px;
+  padding: clamp(24px, 3vw, 40px);
+}
+
+.fairness-box h3 {
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 700;
+  color: var(--lime);
+  margin-bottom: 12px;
+}
+
+.fairness-box p {
+  font-size: clamp(15px, 1.2vw, 18px);
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* ===== SECTION: ATTRIBUTION (light) ===== */
+.attribution-section {
+  background: var(--light);
+  padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
+}
+
+.attribution-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.attribution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.attribution-card {
+  padding: clamp(24px, 3vw, 40px);
+  border: 1px solid var(--divider-light);
+  border-radius: 12px;
+  background: var(--white);
+}
+
+.attribution-card-num {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--lime-hover);
+  margin-bottom: 12px;
+}
+
+.attribution-card h3 {
+  font-size: clamp(18px, 1.6vw, 24px);
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.attribution-card p {
+  font-size: clamp(14px, 1.1vw, 16px);
+  color: #666;
+  line-height: 1.55;
+}
+
+/* ===== SECTION: TIER SYSTEM (dark) ===== */
+.tiers {
+  background: var(--dark);
+  padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
+}
+
+.tiers-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.tier-row {
+  display: grid;
+  grid-template-columns: 6px 200px 140px 1fr;
+  gap: 0 clamp(20px, 3vw, 40px);
+  align-items: center;
+  padding: clamp(24px, 3vw, 36px) 0;
+  border-top: 1px solid var(--divider-dark);
+}
+
+.tier-row:last-child {
   border-bottom: 1px solid var(--divider-dark);
 }
 
-.service-name {
-  font-size: clamp(32px, 5.5vw, 88px);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.02em;
+.tier-accent {
+  width: 6px;
+  height: 100%;
+  min-height: 40px;
+  border-radius: 3px;
+}
+
+.tier-name {
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 700;
   color: var(--white);
-  flex-shrink: 0;
+  letter-spacing: -0.01em;
 }
 
-.service-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: flex-end;
-}
-
-.service-tags span {
-  font-size: 14px;
-  font-weight: 400;
+.tier-range {
+  font-size: clamp(14px, 1.1vw, 16px);
+  font-weight: 500;
   color: var(--muted);
+}
+
+.tier-benefits {
+  font-size: clamp(14px, 1.1vw, 16px);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.tier-benefits span::before {
+  content: '⊹ ';
+  color: var(--lime);
+}
+
+.tier-benefits span {
+  margin-right: 16px;
   white-space: nowrap;
 }
 
-/* ===== VENUES ===== */
+/* ===== SECTION: EVENTS (light) ===== */
+.events-section {
+  background: var(--light);
+  padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
+}
+
+.events-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 4vw, 64px);
+}
+
+.events-col h3 {
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+.events-steps li {
+  font-size: clamp(15px, 1.2vw, 18px);
+  color: #555;
+  padding: 12px 0;
+  border-top: 1px solid var(--divider-light);
+  line-height: 1.5;
+}
+
+.events-steps li:first-child {
+  border-top: none;
+}
+
+.events-steps li::before {
+  content: '→ ';
+  color: var(--lime-hover);
+  font-weight: 600;
+}
+
+.event-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.event-tag {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1.5px solid var(--lime-hover);
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--dark-text);
+  line-height: 1.3;
+}
+
+/* ===== SECTION: FOR VENUES (dark) ===== */
+.for-venues {
+  background: var(--dark);
+  padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
+}
+
+.for-venues-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.venue-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.venue-benefit-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--divider-dark);
+  border-radius: 12px;
+  padding: clamp(24px, 3vw, 40px);
+}
+
+.venue-benefit-card h3 {
+  font-size: clamp(18px, 1.6vw, 24px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.venue-benefit-card p {
+  font-size: clamp(14px, 1.1vw, 16px);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ===== VENUES GRID (light) ===== */
 .venues {
   background: var(--light);
   padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
@@ -364,10 +813,10 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   border-radius: 8px;
 }
 
-.venue-card:nth-child(1) .venue-img { background: #B91C1C; }
-.venue-card:nth-child(2) .venue-img { background: #1E3A5F; }
-.venue-card:nth-child(3) .venue-img { background: #D97706; }
-.venue-card:nth-child(4) .venue-img { background: #4338CA; }
+.venue-card:nth-child(1) .venue-img { background: url('images/venue-dumplings.jpg') center/cover no-repeat; }
+.venue-card:nth-child(2) .venue-img { background: url('images/venue-steak.jpg') center/cover no-repeat; }
+.venue-card:nth-child(3) .venue-img { background: url('images/venue-ramen.jpg') center/cover no-repeat; }
+.venue-card:nth-child(4) .venue-img { background: url('images/venue-izakaya.jpg') center/cover no-repeat; }
 
 .venue-info {
   padding: 16px 4px;
@@ -386,10 +835,50 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   margin-top: 4px;
 }
 
+/* ===== SECTION: FLYWHEEL (dark) ===== */
+.flywheel {
+  background: var(--dark);
+  padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
+}
+
+.flywheel-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.flywheel-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 32px;
+  align-items: baseline;
+  padding: clamp(24px, 3vw, 40px) 0;
+  border-top: 1px solid var(--divider-dark);
+}
+
+.flywheel-row:last-child {
+  border-bottom: 1px solid var(--divider-dark);
+}
+
+.flywheel-num {
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 700;
+  color: var(--lime);
+  opacity: 0.6;
+}
+
+.flywheel-text {
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
 /* ===== STATS ===== */
 .stats {
   background: var(--dark);
   padding: clamp(60px, 8vw, 120px) clamp(24px, 4vw, 48px);
+  border-top: 1px solid var(--divider-dark);
 }
 
 .stats-inner {
@@ -418,172 +907,11 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   letter-spacing: 0.06em;
 }
 
-/* ===== HOW IT WORKS ===== */
-.process {
-  background: var(--light);
-  padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
-}
-
-.process-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-
-.process-label {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--lime-hover);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 16px;
-}
-
-.process h2 {
-  font-size: clamp(48px, 9vw, 130px);
-  font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-  color: var(--dark-text);
-  margin-bottom: clamp(48px, 6vw, 80px);
-}
-
-.step-row {
-  display: grid;
-  grid-template-columns: 80px 1fr 1.5fr;
-  gap: 32px;
-  align-items: baseline;
-  padding: clamp(24px, 3vw, 40px) 0;
-  border-top: 1px solid var(--divider-light);
-}
-
-.step-row:last-child {
-  border-bottom: 1px solid var(--divider-light);
-}
-
-.step-num {
-  font-size: clamp(20px, 2vw, 28px);
-  font-weight: 700;
-  color: var(--dark-text);
-  opacity: 0.3;
-}
-
-.step-title {
-  font-size: clamp(24px, 3vw, 40px);
-  font-weight: 700;
-  color: var(--dark-text);
-  line-height: 1.1;
-}
-
-.step-desc {
-  font-size: clamp(15px, 1.2vw, 18px);
-  font-weight: 400;
-  color: #666;
-  line-height: 1.55;
-  max-width: 500px;
-}
-
-/* ===== PRICING ===== */
-.pricing {
-  background: var(--light);
-  padding: 0 clamp(24px, 4vw, 48px) clamp(60px, 8vw, 140px);
-}
-
-.pricing-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-}
-
-.pricing-label {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--lime-hover);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 16px;
-}
-
-.pricing h2 {
-  font-size: clamp(48px, 9vw, 130px);
-  font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-  color: var(--dark-text);
-  margin-bottom: clamp(48px, 6vw, 80px);
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-.pricing-card {
-  background: var(--white);
-  border: 1px solid var(--divider-light);
-  border-radius: 14px;
-  padding: clamp(28px, 3vw, 48px);
-  display: flex;
-  flex-direction: column;
-}
-
-.pricing-tier {
-  font-size: 14px;
-  font-weight: 500;
-  color: #888;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 8px;
-}
-
-.pricing-plan {
-  font-size: clamp(24px, 2.5vw, 32px);
-  font-weight: 700;
-  color: var(--dark-text);
-  margin-bottom: 4px;
-}
-
-.pricing-commission {
-  font-size: clamp(40px, 4vw, 64px);
-  font-weight: 900;
-  color: var(--dark-text);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin-bottom: 8px;
-}
-
-.pricing-commission-label {
-  font-size: 15px;
-  color: #888;
-  margin-bottom: 32px;
-}
-
-.pricing-features {
-  flex: 1;
-  margin-bottom: 32px;
-}
-
-.pricing-features li {
-  font-size: 16px;
-  color: #444;
-  padding: 8px 0;
-  line-height: 1.4;
-}
-
-.pricing-features li::before {
-  content: '⊹ ';
-  color: var(--lime-hover);
-}
-
-.pricing-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
 /* ===== FAQ ===== */
 .faq {
   background: var(--dark);
   padding: clamp(60px, 8vw, 140px) clamp(24px, 4vw, 48px);
+  border-top: 1px solid var(--divider-dark);
 }
 
 .faq-inner {
@@ -700,7 +1028,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 }
 
 .faq-item.active .faq-answer {
-  max-height: 300px;
+  max-height: 400px;
 }
 
 /* ===== FOOTER ===== */
@@ -857,13 +1185,17 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
     max-width: 100%;
   }
 
-  .venues-grid {
+  .comparison {
     grid-template-columns: 1fr;
   }
 
-  .stats-inner {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+  .comparison-col:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--divider-light);
+  }
+
+  .what-is-cards {
+    grid-template-columns: 1fr;
   }
 
   .step-row {
@@ -875,8 +1207,51 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
     grid-column: 1 / -1;
   }
 
-  .pricing-grid {
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .kpi-grid .kpi-block:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .attribution-grid {
     grid-template-columns: 1fr;
+  }
+
+  .tier-row {
+    grid-template-columns: 6px 1fr;
+    gap: 8px 16px;
+  }
+
+  .tier-range {
+    grid-column: 2;
+  }
+
+  .tier-benefits {
+    grid-column: 2;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-benefit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .venues-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flywheel-row {
+    grid-template-columns: 60px 1fr;
+    gap: 16px;
+  }
+
+  .stats-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
   }
 
   .faq-inner {
@@ -886,16 +1261,6 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   .footer-content {
     grid-template-columns: 1fr;
     gap: 32px;
-  }
-
-  .service-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  .service-tags {
-    justify-content: flex-start;
   }
 }
 
@@ -909,9 +1274,31 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
     gap: 32px;
   }
 
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kpi-grid .kpi-block:last-child {
+    grid-column: auto;
+  }
+
+  .tier-benefits span {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+
   .footer-copyright {
     flex-direction: column;
     text-align: center;
+  }
+
+  .footer-content {
+    text-align: left;
+  }
+
+  .footer-col[style*="text-align"] {
+    text-align: left !important;
   }
 }
 
@@ -937,11 +1324,12 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <a href="#" class="nav-logo">SPOTLIGHT ™</a>
   <div class="nav-links" id="navLinks">
-    <a href="#services">Services</a>
+    <a href="#problem">Problem</a>
+    <a href="#process">How It Works</a>
+    <a href="#tiers">Tiers</a>
+    <a href="#events">Events</a>
     <a href="#venues">Venues</a>
-    <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
-    <a href="#contact">Contact</a>
   </div>
   <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
     <span></span>
@@ -950,7 +1338,9 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   </button>
 </nav>
 
-<!-- HERO -->
+<!-- ============================================================ -->
+<!-- 1. HERO (dark) -->
+<!-- ============================================================ -->
 <section class="hero" id="hero">
   <div class="hero-ghost" aria-hidden="true">SPOTLIGHT</div>
   <div class="hero-grid-lines" aria-hidden="true"></div>
@@ -968,80 +1358,365 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
       <span>for creators</span>
     </h1>
     <div class="hero-right">
-      <p class="hero-sub">We partner with food creators to drive revenue, host unforgettable events, and build audiences across 40+ restaurant venues.</p>
+      <p class="hero-sub">A creator-first platform where restaurants are the stage, not the star. Browse venues, create content, host events, earn by performance.</p>
       <div>
-        <a href="#pricing" class="btn-lime">See Pricing</a>
+        <a href="#tiers" class="btn-lime">See Pricing</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="services-inner">
-    <div class="service-row reveal">
-      <span class="service-name">Creator Partnerships</span>
-      <div class="service-tags">
-        <span>⊹ Content Creation</span>
-        <span>⊹ Revenue Share</span>
-        <span>⊹ Brand Collabs</span>
+<!-- ============================================================ -->
+<!-- 2. THE PROBLEM (light) -->
+<!-- ============================================================ -->
+<section class="problem" id="problem">
+  <div class="problem-inner">
+    <div class="section-label section-label--dark reveal">The Problem</div>
+    <h2 class="section-heading section-heading--dark reveal">Every platform is<br>built for the brand.</h2>
+    <p class="problem-sub reveal">The creator is the product being purchased. We flipped the script.</p>
+
+    <div class="comparison reveal">
+      <div class="comparison-col">
+        <h3>Today's Model</h3>
+        <ul>
+          <li>Restaurant signs up</li>
+          <li>Restaurant searches for creators</li>
+          <li>Restaurant sets the terms</li>
+          <li>Restaurant pays per post</li>
+          <li class="comparison-highlight--red">Creator is the product</li>
+        </ul>
       </div>
-    </div>
-    <div class="service-row reveal">
-      <span class="service-name">Event Hosting</span>
-      <div class="service-tags">
-        <span>⊹ Private Events</span>
-        <span>⊹ Venue Access</span>
-        <span>⊹ Full Support</span>
-      </div>
-    </div>
-    <div class="service-row reveal">
-      <span class="service-name">Performance Marketing</span>
-      <div class="service-tags">
-        <span>⊹ Attribution</span>
-        <span>⊹ Analytics</span>
-        <span>⊹ Optimization</span>
-      </div>
-    </div>
-    <div class="service-row reveal">
-      <span class="service-name">Brand Amplification</span>
-      <div class="service-tags">
-        <span>⊹ Social Media</span>
-        <span>⊹ Cross-Promotion</span>
-        <span>⊹ Community</span>
+      <div class="comparison-col">
+        <h3>Spotlight Model</h3>
+        <ul>
+          <li>Creator signs up</li>
+          <li>Creator browses restaurant venues</li>
+          <li>Creator picks their stage</li>
+          <li>Creator earns by performance</li>
+          <li class="comparison-highlight--lime">Creator is the STAR</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VENUES -->
+<!-- ============================================================ -->
+<!-- 3. WHAT IS SPOTLIGHT (dark) -->
+<!-- ============================================================ -->
+<section class="what-is" id="what-is">
+  <div class="what-is-inner">
+    <div class="section-label reveal">What Is Spotlight</div>
+    <h2 class="section-heading section-heading--white reveal">Built for food creators.</h2>
+    <p class="section-sub section-sub--muted reveal">Restaurants provide the venue, the food, the ambiance. The show belongs to the creator.</p>
+
+    <div class="what-is-cards">
+      <div class="what-is-card reveal">
+        <h3>Your Stage</h3>
+        <p>40+ restaurant venues as your content studio, event space, and growth engine.</p>
+      </div>
+      <div class="what-is-card reveal">
+        <h3>Your Growth</h3>
+        <p>Analytics, cross-promotion, paid amplification, and a verified media kit.</p>
+      </div>
+      <div class="what-is-card reveal">
+        <h3>Your Events</h3>
+        <p>Host your own events at partner restaurants. Your name, top billing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 4. HOW CREATORS USE SPOTLIGHT (light) -->
+<!-- ============================================================ -->
+<section class="process" id="process">
+  <div class="process-inner">
+    <div class="section-label section-label--dark reveal">Process</div>
+    <h2 class="section-heading section-heading--dark reveal">How it works</h2>
+    <p class="section-sub section-sub--dark reveal" style="margin-bottom: clamp(48px, 6vw, 80px);">Five steps from signup to stardom.</p>
+
+    <div class="step-row reveal">
+      <span class="step-num">01</span>
+      <span class="step-title">Browse Venues</span>
+      <p class="step-desc">Filter by vibe, cuisine, location. See what each restaurant offers creators.</p>
+    </div>
+    <div class="step-row reveal">
+      <span class="step-num">02</span>
+      <span class="step-title">Book Your Stage</span>
+      <p class="step-desc">One-tap booking. Get a comp'd meal and create content on your terms.</p>
+    </div>
+    <div class="step-row reveal">
+      <span class="step-num">03</span>
+      <span class="step-title">Post & Earn</span>
+      <p class="step-desc">Share content. Earn commissions on every reservation and order you drive.</p>
+    </div>
+    <div class="step-row reveal">
+      <span class="step-num">04</span>
+      <span class="step-title">Host Events</span>
+      <p class="step-desc">Create your own events at the venue. Sell tickets. Build community.</p>
+    </div>
+    <div class="step-row reveal">
+      <span class="step-num">05</span>
+      <span class="step-title">Grow & Level Up</span>
+      <p class="step-desc">Track your growth. Build your portfolio. Climb tiers. Unlock more rewards.</p>
+    </div>
+
+    <div class="callout-lime reveal">The creator never pays. Spotlight is free for creators. Always.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 5. PERFORMANCE KPIs (dark) -->
+<!-- ============================================================ -->
+<section class="kpi" id="kpi">
+  <div class="kpi-inner">
+    <div class="section-label reveal">Composite Spotlight Score</div>
+    <h2 class="section-heading section-heading--white reveal">Impact, not followers.</h2>
+    <p class="section-sub section-sub--muted reveal">Rewards are based on impact, not follower count. Every metric is ratio-based.</p>
+
+    <div class="kpi-grid">
+      <div class="kpi-block reveal">
+        <div class="kpi-block-title">Conversion Rate</div>
+        <div class="kpi-block-value">30%</div>
+        <div class="kpi-block-desc">Reservations, orders, promo redemptions ÷ Link clicks</div>
+      </div>
+      <div class="kpi-block reveal">
+        <div class="kpi-block-title">Engagement Rate</div>
+        <div class="kpi-block-value">25%</div>
+        <div class="kpi-block-desc">Likes, comments, saves, shares ÷ Impressions</div>
+      </div>
+      <div class="kpi-block reveal">
+        <div class="kpi-block-title">Content Score</div>
+        <div class="kpi-block-value">20%</div>
+        <div class="kpi-block-desc">AI quality assessment + venue partner ratings</div>
+      </div>
+      <div class="kpi-block reveal">
+        <div class="kpi-block-title">Community Impact</div>
+        <div class="kpi-block-value">15%</div>
+        <div class="kpi-block-desc">Events hosted, attendees, collabs, referrals</div>
+      </div>
+      <div class="kpi-block reveal">
+        <div class="kpi-block-title">Growth Velocity</div>
+        <div class="kpi-block-value">10%</div>
+        <div class="kpi-block-desc">% follower growth over rolling 90 days</div>
+      </div>
+    </div>
+
+    <div class="fairness-box reveal">
+      <h3>The Fairness Engine</h3>
+      <p>All scores are normalized within follower-count cohorts. A creator with 800 followers who drives 15 reservations outscores one with 200K followers who drives 50.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 6. ATTRIBUTION (light) -->
+<!-- ============================================================ -->
+<section class="attribution-section" id="attribution">
+  <div class="attribution-inner">
+    <div class="section-label section-label--dark reveal">Attribution</div>
+    <h2 class="section-heading section-heading--dark reveal">Six layers of tracking.</h2>
+    <p class="section-sub section-sub--dark reveal">Every creator gets credit for the business they drive.</p>
+
+    <div class="attribution-grid">
+      <div class="attribution-card reveal">
+        <div class="attribution-card-num">01</div>
+        <h3>Unique Creator Links</h3>
+        <p>Personalized short URLs with UTM tracking for every campaign.</p>
+      </div>
+      <div class="attribution-card reveal">
+        <div class="attribution-card-num">02</div>
+        <h3>Creator Promo Codes</h3>
+        <p>Unique codes redeemable at POS, auto-tracked through Toast/Square.</p>
+      </div>
+      <div class="attribution-card reveal">
+        <div class="attribution-card-num">03</div>
+        <h3>Dynamic QR Codes</h3>
+        <p>Creator-specific QR codes for stories, reels, and print.</p>
+      </div>
+      <div class="attribution-card reveal">
+        <div class="attribution-card-num">04</div>
+        <h3>Social Content Monitoring</h3>
+        <p>Auto-tracking of tagged posts, mentions, and location tags.</p>
+      </div>
+      <div class="attribution-card reveal">
+        <div class="attribution-card-num">05</div>
+        <h3>Reservation API</h3>
+        <p>Direct integration with OpenTable, Resy, or custom booking.</p>
+      </div>
+      <div class="attribution-card reveal">
+        <div class="attribution-card-num">06</div>
+        <h3>Event Attendance</h3>
+        <p>Ticketing and RSVP data for direct revenue attribution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 7. CREATOR TIER SYSTEM (dark) -->
+<!-- ============================================================ -->
+<section class="tiers" id="tiers">
+  <div class="tiers-inner">
+    <div class="section-label reveal">Tier System</div>
+    <h2 class="section-heading section-heading--white reveal">Climb by performing.</h2>
+    <p class="section-sub section-sub--muted reveal">Climb the ranks by performing, not by buying followers. CSS = Composite Spotlight Score (0–100).</p>
+
+    <div class="tier-row reveal">
+      <div class="tier-accent" style="background: #14B8A6;"></div>
+      <div class="tier-name">Newcomer</div>
+      <div class="tier-range">First 3 visits</div>
+      <div class="tier-benefits">
+        <span>Venue access</span>
+        <span>Basic analytics</span>
+        <span>Community</span>
+      </div>
+    </div>
+    <div class="tier-row reveal">
+      <div class="tier-accent" style="background: #84CC16;"></div>
+      <div class="tier-name">Creator</div>
+      <div class="tier-range">CSS 1–49</div>
+      <div class="tier-benefits">
+        <span>Unlimited visits</span>
+        <span>5% commissions</span>
+        <span>Event access</span>
+      </div>
+    </div>
+    <div class="tier-row reveal">
+      <div class="tier-accent" style="background: #8B5CF6;"></div>
+      <div class="tier-name">Spotlight Star</div>
+      <div class="tier-range">CSS 50–79</div>
+      <div class="tier-benefits">
+        <span>Priority booking</span>
+        <span>10% commissions</span>
+        <span>Content licensing</span>
+        <span>Paid boost</span>
+      </div>
+    </div>
+    <div class="tier-row reveal">
+      <div class="tier-accent" style="background: #A3E635;"></div>
+      <div class="tier-name">Headliner</div>
+      <div class="tier-range">CSS 80–100</div>
+      <div class="tier-benefits">
+        <span>Monthly retainer</span>
+        <span>15% commissions</span>
+        <span>Event budget</span>
+        <span>PR support</span>
+        <span>Advisory board</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 8. CREATOR-HOSTED EVENTS (light) -->
+<!-- ============================================================ -->
+<section class="events-section" id="events">
+  <div class="events-inner">
+    <div class="reveal" style="width:100%;height:clamp(280px,30vw,420px);border-radius:8px;overflow:hidden;margin-bottom:clamp(40px,5vw,80px)">
+      <img src="images/event-scene.jpg" alt="Creator event at restaurant" style="width:100%;height:100%;object-fit:cover">
+    </div>
+    <div class="section-label section-label--dark reveal">Your Events</div>
+    <h2 class="section-heading section-heading--dark reveal">Host experiences,<br>not just posts.</h2>
+    <p class="section-sub section-sub--dark reveal">Creators don't just post about restaurants — they host experiences at them.</p>
+
+    <div class="events-grid">
+      <div class="events-col reveal">
+        <h3>How It Works</h3>
+        <ul class="events-steps">
+          <li>Creator designs the concept</li>
+          <li>Spotlight matches to an Ivea venue</li>
+          <li>Both promote — creator is top billing</li>
+          <li>Built-in ticketing (creator keeps 70–80%)</li>
+          <li>Post-event analytics & portfolio piece</li>
+        </ul>
+      </div>
+      <div class="events-col reveal">
+        <h3>Example Events</h3>
+        <div class="event-tags">
+          <span class="event-tag">Ramen Wars: Blind Taste Test</span>
+          <span class="event-tag">TikTok Tuesdays at Izakaya Nana</span>
+          <span class="event-tag">Gong Cha Mixology Lab</span>
+          <span class="event-tag">Date Night Supper Club</span>
+          <span class="event-tag">Creator Brunch Club</span>
+          <span class="event-tag">Dumpling & Doodles at iPanda</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 9. FOR RESTAURANTS (dark) -->
+<!-- ============================================================ -->
+<section class="for-venues" id="for-venues">
+  <div class="for-venues-inner">
+    <div class="reveal" style="width:100%;height:clamp(280px,30vw,420px);border-radius:8px;overflow:hidden;margin-bottom:clamp(40px,5vw,80px)">
+      <img src="images/venue-interior.jpg" alt="Restaurant interior" style="width:100%;height:100%;object-fit:cover">
+    </div>
+    <div class="section-label reveal">For Venues</div>
+    <h2 class="section-heading section-heading--white reveal">Zero risk.<br>Enormous return.</h2>
+    <p class="section-sub section-sub--muted reveal">The restaurant's cost is food at cost price. The return is enormous.</p>
+
+    <div class="venue-benefit-grid">
+      <div class="venue-benefit-card reveal">
+        <h3>Authentic Content</h3>
+        <p>Every creator visit generates high-quality UGC you can repost across your own channels.</p>
+      </div>
+      <div class="venue-benefit-card reveal">
+        <h3>Event Revenue</h3>
+        <p>Creator-hosted events fill seats on slow nights and bring new demographics through the door.</p>
+      </div>
+      <div class="venue-benefit-card reveal">
+        <h3>Foot Traffic</h3>
+        <p>Creator-driven reservations and visits are tracked and attributable to each creator.</p>
+      </div>
+      <div class="venue-benefit-card reveal">
+        <h3>Zero Risk</h3>
+        <p>A $50 comp'd meal that generates a reel seen by 30,000 people is the best CPM available.</p>
+      </div>
+      <div class="venue-benefit-card reveal">
+        <h3>Social Proof</h3>
+        <p>A steady stream of real people creating real content is the most powerful marketing.</p>
+      </div>
+      <div class="venue-benefit-card reveal">
+        <h3>Creator Ratings</h3>
+        <p>Feedback loop pushes venues to improve their creator-friendliness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 10. VENUES (light) -->
+<!-- ============================================================ -->
 <section class="venues" id="venues">
   <div class="venues-inner">
     <h2 class="reveal">Featured<br>Venues</h2>
     <div class="venues-grid">
       <div class="venue-card reveal">
-        <div class="venue-img">iPD</div>
+        <div class="venue-img"></div>
         <div class="venue-info">
           <div class="venue-name">iPanda Dumpling</div>
           <div class="venue-location">Rockville, MD</div>
         </div>
       </div>
       <div class="venue-card reveal">
-        <div class="venue-img">KS</div>
+        <div class="venue-img"></div>
         <div class="venue-info">
           <div class="venue-name">Kyū Steakhouse</div>
           <div class="venue-location">DC — Georgetown</div>
         </div>
       </div>
       <div class="venue-card reveal">
-        <div class="venue-img">MR</div>
+        <div class="venue-img"></div>
         <div class="venue-info">
           <div class="venue-name">Momo Ramen</div>
           <div class="venue-location">DC — Dupont Circle</div>
         </div>
       </div>
       <div class="venue-card reveal">
-        <div class="venue-img">IN</div>
+        <div class="venue-img"></div>
         <div class="venue-info">
           <div class="venue-name">Izakaya Nana</div>
           <div class="venue-location">Arlington, VA</div>
@@ -1051,105 +1726,65 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   </div>
 </section>
 
-<!-- STATS -->
+<!-- ============================================================ -->
+<!-- 11. THE FLYWHEEL (dark) -->
+<!-- ============================================================ -->
+<section class="flywheel" id="flywheel">
+  <div class="flywheel-inner">
+    <div class="section-label reveal">The Flywheel</div>
+    <h2 class="section-heading section-heading--white reveal">Network effects<br>compound.</h2>
+    <p class="section-sub section-sub--muted reveal">A self-reinforcing loop that grows with every creator and every venue.</p>
+
+    <div class="flywheel-row reveal">
+      <span class="flywheel-num">01</span>
+      <p class="flywheel-text">Creators join because Spotlight gives them venues, events, growth tools, and a verified portfolio.</p>
+    </div>
+    <div class="flywheel-row reveal">
+      <span class="flywheel-num">02</span>
+      <p class="flywheel-text">Restaurants join because the best creators are already on Spotlight, creating content that drives business.</p>
+    </div>
+    <div class="flywheel-row reveal">
+      <span class="flywheel-num">03</span>
+      <p class="flywheel-text">More creators attract more restaurants. More restaurants attract more creators.</p>
+    </div>
+    <div class="flywheel-row reveal">
+      <span class="flywheel-num">04</span>
+      <p class="flywheel-text">Network effect compounds. Spotlight becomes the place to be for food creators.</p>
+    </div>
+    <div class="flywheel-row reveal">
+      <span class="flywheel-num">05</span>
+      <p class="flywheel-text">Ivea sits at the center — as the founding venue partner, platform builder, and biggest beneficiary.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 12. STATS (dark) -->
+<!-- ============================================================ -->
 <section class="stats">
   <div class="stats-inner">
     <div class="reveal">
-      <div class="stat-number">20+</div>
-      <div class="stat-label">Concepts</div>
+      <div class="stat-number">35+</div>
+      <div class="stat-label">Restaurant Brands</div>
     </div>
     <div class="reveal">
-      <div class="stat-number">40+</div>
+      <div class="stat-number">90+</div>
       <div class="stat-label">Locations</div>
     </div>
     <div class="reveal">
-      <div class="stat-number">4.8x</div>
-      <div class="stat-label">Program ROI</div>
+      <div class="stat-number">∞</div>
+      <div class="stat-label">Cuisine Types</div>
     </div>
     <div class="reveal">
-      <div class="stat-number">$48K+</div>
-      <div class="stat-label">Monthly Revenue</div>
+      <div class="stat-number">0–100</div>
+      <div class="stat-label">CSS Scoring</div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="process" id="process">
-  <div class="process-inner">
-    <div class="process-label reveal">Process</div>
-    <h2 class="reveal">How it works</h2>
-
-    <div class="step-row reveal">
-      <span class="step-num">01</span>
-      <span class="step-title">Apply & Match</span>
-      <p class="step-desc">Submit your application and get matched with restaurant concepts that fit your niche, audience, and content style.</p>
-    </div>
-    <div class="step-row reveal">
-      <span class="step-num">02</span>
-      <span class="step-title">Book & Visit</span>
-      <p class="step-desc">Browse available venues and book dining experiences through our platform. Enjoy complimentary meals on every visit.</p>
-    </div>
-    <div class="step-row reveal">
-      <span class="step-num">03</span>
-      <span class="step-title">Create & Host</span>
-      <p class="step-desc">Create authentic content — reels, stories, reviews — and host curated events that bring your community together.</p>
-    </div>
-    <div class="step-row reveal">
-      <span class="step-num">04</span>
-      <span class="step-title">Earn & Grow</span>
-      <p class="step-desc">Earn performance-based commissions on every booking you drive. Level up to unlock higher tiers and exclusive perks.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-  <div class="pricing-inner">
-    <div class="pricing-label reveal">Pricing</div>
-    <h2 class="reveal">Partner Tiers</h2>
-
-    <div class="pricing-grid">
-      <div class="pricing-card reveal">
-        <div class="pricing-tier">Tier 1</div>
-        <div class="pricing-plan">Creator</div>
-        <div class="pricing-commission">8-12%</div>
-        <div class="pricing-commission-label">Commission per booking</div>
-        <ul class="pricing-features">
-          <li>Access to all 40+ venues</li>
-          <li>Complimentary dining per visit</li>
-          <li>Content creation toolkit</li>
-          <li>Performance analytics dashboard</li>
-          <li>Monthly creator meetups</li>
-          <li>Direct booking link</li>
-        </ul>
-        <div class="pricing-buttons">
-          <a href="#contact" class="btn-lime">Get Started</a>
-        </div>
-      </div>
-      <div class="pricing-card reveal">
-        <div class="pricing-tier">Tier 2</div>
-        <div class="pricing-plan">Headliner</div>
-        <div class="pricing-commission">12-15%</div>
-        <div class="pricing-commission-label">Commission per booking</div>
-        <ul class="pricing-features">
-          <li>Everything in Creator tier</li>
-          <li>Priority venue access</li>
-          <li>Custom event hosting</li>
-          <li>Dedicated account manager</li>
-          <li>Brand collaboration pipeline</li>
-          <li>Cross-promotion across network</li>
-          <li>Revenue optimization support</li>
-        </ul>
-        <div class="pricing-buttons">
-          <a href="#contact" class="btn-lime">Get Started</a>
-          <a href="#contact" class="btn-outline">Book a Call</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
+<!-- ============================================================ -->
+<!-- 13. FAQ (dark) -->
+<!-- ============================================================ -->
 <section class="faq" id="faq">
   <div class="faq-inner">
     <div class="faq-left reveal">
@@ -1164,7 +1799,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Apply through our platform with your social media profiles and content portfolio. Our team reviews applications within 48 hours and matches you with restaurant concepts that align with your audience and style.</div>
+          <div class="faq-answer-inner">Apply through our platform. We review your content style, audience, and niche to match you with the right restaurant venues. The creator never pays — Spotlight is free for creators, always.</div>
         </div>
       </div>
       <div class="faq-item reveal">
@@ -1174,7 +1809,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">You earn a percentage of every booking made through your unique link or promo code. Commissions are tracked in real-time on your dashboard and paid out monthly. Rates increase as you level up through tiers.</div>
+          <div class="faq-answer-inner">You earn performance-based commissions (5–15%) on every reservation, order, and promo redemption your content drives. We track everything through six layers of attribution including unique links, promo codes, QR codes, and POS integration.</div>
         </div>
       </div>
       <div class="faq-item reveal">
@@ -1184,7 +1819,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Absolutely. Headliner-tier creators get full event hosting support — from venue selection and menu curation to marketing and day-of coordination. Creator-tier members can request event access on a case-by-case basis.</div>
+          <div class="faq-answer-inner">Yes. Design your concept, and Spotlight matches you with the perfect Ivea venue. You get top billing, built-in ticketing (keep 70–80% of ticket revenue), and post-event analytics for your portfolio.</div>
         </div>
       </div>
       <div class="faq-item reveal">
@@ -1194,7 +1829,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Spotlight partners with Ivea Concepts' full portfolio of 20+ restaurant concepts across 40+ locations in the Washington DC metro area — including Japanese, Chinese, Korean, Italian, and fusion cuisines.</div>
+          <div class="faq-answer-inner">20+ concepts across 40+ locations in the DMV — Japanese, Chinese, boba, fine dining, fast casual, and more. Filter by vibe, cuisine, or location.</div>
         </div>
       </div>
       <div class="faq-item reveal">
@@ -1204,14 +1839,16 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Tier advancement is based on performance metrics: booking volume, content engagement, and audience growth. Meet the quarterly benchmarks and you automatically advance. Your dashboard tracks progress in real-time.</div>
+          <div class="faq-answer-inner">Your Composite Spotlight Score (CSS) determines your tier. CSS is based on five performance KPIs — conversion rate, engagement, content quality, community impact, and growth velocity — all normalized within your follower-count cohort so it's fair regardless of audience size.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ============================================================ -->
+<!-- 14. FOOTER (light) -->
+<!-- ============================================================ -->
 <footer class="footer" id="contact">
   <div class="footer-marquee" aria-hidden="true">
     <div class="footer-marquee-track">
@@ -1227,9 +1864,11 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   <div class="footer-content">
     <div class="footer-col">
       <div class="footer-col-label">Navigation</div>
-      <a href="#services">Services</a>
+      <a href="#problem">Problem</a>
+      <a href="#process">How It Works</a>
+      <a href="#tiers">Tiers</a>
+      <a href="#events">Events</a>
       <a href="#venues">Venues</a>
-      <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </div>
     <div class="footer-col" style="text-align: center;">
@@ -1262,7 +1901,6 @@ navToggle.addEventListener('click', () => {
   navLinks.classList.toggle('open');
   const isOpen = navLinks.classList.contains('open');
   navToggle.setAttribute('aria-expanded', isOpen);
-  // Animate hamburger
   const spans = navToggle.querySelectorAll('span');
   if (isOpen) {
     spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
