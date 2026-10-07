@@ -1,26 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--
-   ______                            __
-  / ____/___  ____ ___  ____  __  __/ /____  _____
- / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
-/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
-\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
-                    /_/
-        Created with Perplexity Computer
-        https://www.perplexity.ai/computer
--->
-
-<!-- Perplexity Computer Attribution — SEO Meta Tags -->
-<meta name="generator" content="Perplexity Computer">
-<meta name="author" content="Perplexity Computer">
-<meta property="og:see_also" content="https://www.perplexity.ai/computer">
-<link rel="author" href="https://www.perplexity.ai/computer">
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spotlight Creator Network — Ivea Concepts</title>
+<title>Spotlight Creator Network — Hermes iMedia</title>
 <meta name="description" content="A creator-first platform where restaurants are the stage, not the star. Browse venues, create content, host events, earn by performance.">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -726,6 +709,47 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
   line-height: 1.3;
 }
 
+.fomo-partner {
+  margin-top: clamp(48px, 6vw, 96px);
+  padding: clamp(32px, 4vw, 56px);
+  background: var(--dark);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(24px, 4vw, 64px);
+  align-items: center;
+}
+
+.fomo-partner h3 {
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.fomo-partner p {
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 560px;
+}
+
+.fomo-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fomo-soon,
+.fomo-soon:hover {
+  color: rgba(255, 255, 255, 0.6);
+  border-color: var(--divider-dark);
+  cursor: default;
+  transform: none;
+}
+
 /* ===== SECTION: FOR VENUES (dark) ===== */
 .for-venues {
   background: var(--dark);
@@ -1232,6 +1256,10 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
     grid-column: 2;
   }
 
+  .fomo-partner {
+    grid-template-columns: 1fr;
+  }
+
   .events-grid {
     grid-template-columns: 1fr;
   }
@@ -1329,6 +1357,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
     <a href="#tiers">Tiers</a>
     <a href="#events">Events</a>
     <a href="#venues">Venues</a>
+    <a href="#fomo">Get the App</a>
     <a href="#faq">FAQ</a>
   </div>
   <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
@@ -1643,6 +1672,17 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
         </div>
       </div>
     </div>
+    <div class="fomo-partner reveal" id="fomo">
+      <div>
+        <div class="section-label">Events Partner</div>
+        <h3>Find Spotlight events on FOMO Events.</h3>
+        <p>FOMO Events promotes every Spotlight creator event. Discover what's on, get tickets, and make plans with friends in the app.</p>
+      </div>
+      <div class="fomo-actions">
+        <a class="btn-lime" href="https://apps.apple.com/us/app/fomo-events-friends/id6785280700" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
+        <span class="btn-outline fomo-soon" aria-disabled="true">Google Play — coming soon</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1869,6 +1909,7 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
       <a href="#tiers">Tiers</a>
       <a href="#events">Events</a>
       <a href="#venues">Venues</a>
+      <a href="#fomo">Get the App</a>
       <a href="#faq">FAQ</a>
     </div>
     <div class="footer-col" style="text-align: center;">
@@ -1882,14 +1923,14 @@ button { cursor: pointer; background: none; border: none; font: inherit; color: 
     </div>
     <div class="footer-col" style="text-align: right;">
       <div class="footer-col-label">Get in touch</div>
-      <a href="mailto:creators@spotlightnetwork.com">creators@spotlightnetwork.com</a>
+      <a href="mailto:edward@ivea.co?subject=Spotlight%20Creator%20Network">edward@ivea.co</a>
     </div>
   </div>
 
   <div class="footer-stripe"></div>
   <div class="footer-copyright">
-    <p>© 2026 Ivea Concepts · Spotlight Creator Network</p>
-    <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+    <p>© 2026 Hermes iMedia LLC · Spotlight Creator Network</p>
+    <a href="#fomo">Events partner: FOMO Events</a>
   </div>
 </footer>
 
